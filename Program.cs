@@ -48,6 +48,9 @@ if (app.Environment.IsDevelopment())
     app.UseHttpsRedirection();
 }
 
+// Health check endpoint
+app.MapGet("/", () => Results.Ok(new { status = "healthy", message = "myMotionApi is running! 💌" }));
+
 app.UseCors();
 app.UseAuthorization();
 app.MapControllers();

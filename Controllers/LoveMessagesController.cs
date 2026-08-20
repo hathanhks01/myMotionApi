@@ -17,10 +17,15 @@ namespace myMotionApi.Controllers
         public LoveMessagesController(AppDbContext db, IConfiguration config)
         {
             _db = db;
-            _senderId = Guid.Parse(config["AppSettings:SenderId"]
-                ?? "11111111-1111-1111-1111-111111111111");
-            _receiverId = Guid.Parse(config["AppSettings:ReceiverId"]
-                ?? "22222222-2222-2222-2222-222222222222");
+            var senderStr = config["AppSettings:SenderId"];
+            _senderId = Guid.TryParse(senderStr, out var sId)
+                ? sId
+                : Guid.Parse("11111111-1111-1111-1111-111111111111");
+
+            var receiverStr = config["AppSettings:ReceiverId"];
+            _receiverId = Guid.TryParse(receiverStr, out var rId)
+                ? rId
+                : Guid.Parse("22222222-2222-2222-2222-222222222222");
         }
 
         // ── GET /api/lovemessages ─────────────────────────────────────────────
