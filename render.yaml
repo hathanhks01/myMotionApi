@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: mymotion-api
+    runtime: docker
+    plan: free
+    region: singapore # hoặc oregon, ohio, frankfurt
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: DATABASE_URL
+        sync: false # Nhập tay trên Dashboard để bảo mật
+      - key: SENDER_ID
+        sync: false
+      - key: RECEIVER_ID
+        sync: false

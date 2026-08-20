@@ -1,0 +1,14 @@
+services:
+  mymotion-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mymotion-api
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080

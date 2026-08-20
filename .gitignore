@@ -1,0 +1,17 @@
+# .NET artifacts
+bin/
+obj/
+*.user
+*.suo
+
+# Environment variables & secrets
+.env
+
+# Logs & temp
+*.log
+.vs/
+.vscode/
+
+# Frontend (if any leftovers)
+fe/
+node_modules/
