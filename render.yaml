@@ -8,6 +8,8 @@ services:
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
         value: Production
+      - key: DOTNET_USE_POLLING_FILE_WATCHER
+        value: "true"
       - key: DATABASE_URL
         sync: false # Nhập tay trên Dashboard để bảo mật
       - key: SENDER_ID
